@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    border: 3px solid #4a4a6a;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(74, 74, 106, 0.5);
+}
+
+#gameCanvas {
+    display: block;
+    background-color: #0f0f1a;
+    cursor: crosshair;
+}
+
+#ui {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+#score, #health {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+#score span, #health span {
+    color: #00ff88;
+}
+
+#health span {
+    color: #ff6b6b;
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 40px 60px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid #4a4a6a;
+}
+
+#gameOver h1 {
+    color: #ff6b6b;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+#gameOver p {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+#gameOver span {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+#restartBtn {
+    background: linear-gradient(135deg, #00ff88, #00cc6a);
+    color: #0f0f1a;
+    border: none;
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+#restartBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.hidden {
+    display: none !important;
+}
