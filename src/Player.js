@@ -7,8 +7,10 @@ export class Player {
         this.y = y;
         this.radius = 20;
         this.color = '#00ff88';
-        this.speed = 5;
+        this.speed = 3;
         this.health = 100;
+        this.damage = 1;
+        this.shootInterval = 200;
         
         // Movement state
         this.keys = {
@@ -39,9 +41,21 @@ export class Player {
      * Handle keydown event
      */
     handleKeyDown(key) {
-        const keyLower = key.toLowerCase();
-        if (this.keys.hasOwnProperty(keyLower)) {
-            this.keys[keyLower] = true;
+        // Map both English and Russian keyboard layouts
+        const keyMap = {
+            'w': 'w', 'ц': 'w',
+            'a': 'a', 'ф': 'a',
+            's': 's', 'ы': 's',
+            'd': 'd', 'в': 'd',
+            'arrowup': 'w',
+            'arrowdown': 's',
+            'arrowleft': 'a',
+            'arrowright': 'd'
+        };
+        
+        const normalizedKey = keyMap[key.toLowerCase()];
+        if (normalizedKey && this.keys.hasOwnProperty(normalizedKey)) {
+            this.keys[normalizedKey] = true;
         }
     }
     
@@ -49,9 +63,21 @@ export class Player {
      * Handle keyup event
      */
     handleKeyUp(key) {
-        const keyLower = key.toLowerCase();
-        if (this.keys.hasOwnProperty(keyLower)) {
-            this.keys[keyLower] = false;
+        // Map both English and Russian keyboard layouts
+        const keyMap = {
+            'w': 'w', 'ц': 'w',
+            'a': 'a', 'ф': 'a',
+            's': 's', 'ы': 's',
+            'd': 'd', 'в': 'd',
+            'arrowup': 'w',
+            'arrowdown': 's',
+            'arrowleft': 'a',
+            'arrowright': 'd'
+        };
+        
+        const normalizedKey = keyMap[key.toLowerCase()];
+        if (normalizedKey && this.keys.hasOwnProperty(normalizedKey)) {
+            this.keys[normalizedKey] = false;
         }
     }
     

@@ -2,13 +2,14 @@
  * Bullet class - represents a projectile fired by the player
  */
 export class Bullet {
-    constructor(x, y, angle) {
+    constructor(x, y, angle, damage = 1) {
         this.x = x;
         this.y = y;
         this.radius = 5;
         this.color = '#ffff00';
         this.speed = 12;
         this.angle = angle;
+        this.damage = damage;
         
         // Calculate velocity based on angle
         this.vx = Math.cos(angle) * this.speed;
