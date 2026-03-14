@@ -174,9 +174,6 @@ function GameCanvas() {
           <button id="resumeBtn" onClick={handleResume}>
             ПРОДОЛЖИТЬ
           </button>
-          <button id="restartBtn" onClick={handleRestart}>
-            В НАЧАЛО
-          </button>
         </div>
       )}
       <div id="levelUp" className="hidden">

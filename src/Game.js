@@ -220,11 +220,34 @@ export class Game {
                 break;
         }
         
-        // Random enemy type
-        const types = ['basic', 'basic', 'basic', 'fast', 'tank'];
+        // Calculate difficulty multipliers based on level
+        // Each level increases enemy stats by 10%
+        const difficultyMultiplier = 1 + (this.level - 1) * 0.1;
+        
+        // Random enemy type - with higher levels, more fast and tank enemies appear
+        let types = ['basic'];
+        
+        // Add more enemy types as level increases
+        if (this.level >= 2) {
+            types.push('basic'); // More basic enemies
+        }
+        if (this.level >= 3) {
+            types.push('fast'); // Fast enemies start appearing
+        }
+        if (this.level >= 5) {
+            types.push('fast', 'fast'); // More fast enemies
+        }
+        if (this.level >= 4) {
+            types.push('tank'); // Tank enemies start appearing
+        }
+        if (this.level >= 7) {
+            types.push('tank', 'tank'); // More tank enemies
+        }
+        
         const type = types[Math.floor(Math.random() * types.length)];
         
-        const enemy = new Enemy(x, y, type);
+        // Create enemy with difficulty scaling
+        const enemy = new Enemy(x, y, type, difficultyMultiplier);
         this.enemies.push(enemy);
     }
     

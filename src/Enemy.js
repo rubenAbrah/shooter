@@ -2,34 +2,37 @@
  * Enemy class - represents enemies that chase the player
  */
 export class Enemy {
-    constructor(x, y, type = 'basic') {
+    constructor(x, y, type = 'basic', difficultyMultiplier = 1) {
         this.x = x;
         this.y = y;
         this.type = type;
+        
+        // Apply difficulty multiplier to all stats
+        const multiplier = difficultyMultiplier;
         
         // Set properties based on enemy type
         switch (type) {
             case 'fast':
                 this.radius = 15;
                 this.color = '#ff6b6b';
-                this.speed = 3;
-                this.health = 1;
-                this.damage = 10;
+                this.speed = 3 * multiplier;
+                this.health = Math.ceil(1 * multiplier);
+                this.damage = Math.ceil(10 * multiplier);
                 break;
             case 'tank':
                 this.radius = 30;
                 this.color = '#9b59b6';
-                this.speed = 1;
-                this.health = 5;
-                this.damage = 25;
+                this.speed = 1 * multiplier;
+                this.health = Math.ceil(5 * multiplier);
+                this.damage = Math.ceil(25 * multiplier);
                 break;
             case 'basic':
             default:
                 this.radius = 20;
                 this.color = '#ff9f43';
-                this.speed = 2;
-                this.health = 2;
-                this.damage = 15;
+                this.speed = 2 * multiplier;
+                this.health = Math.ceil(2 * multiplier);
+                this.damage = Math.ceil(15 * multiplier);
                 break;
         }
         
